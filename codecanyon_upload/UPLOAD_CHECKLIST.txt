@@ -1,0 +1,27 @@
+﻿CODECANYON UPLOAD PACKAGE
+=========================
+
+Product: SugarPop Blast
+Platform: Android
+Package version: 1.0
+Android app version: 2.0 (versionCode 1)
+
+Files in this folder:
+- SugarPop Blast Thumbnail.jpg â€” 80 x 80 JPEG
+- SugarPop Blast Inline Preview.jpg â€” 590 x 300 JPEG
+- SugarPop Blast Source File v1.0.zip â€” main source submission archive
+- SugarPop Blast Preview Screenshots.zip â€” supplied setup screenshots
+
+The source archive contains:
+- Documentation v1.0/documentation.html
+- Documentation v1.0/Documentation.pdf
+- Documentation v1.0/App Icon.png
+- Documentation v1.0/Assets/
+- SugarPop Blast/
+
+The machine-specific local.properties file and generated .gradle/.idea folders are intentionally excluded from the source archive. Open the project in Android Studio and let it create local machine settings on the target computer.
+
+The supplied preview screenshots document Android Studio setup and source files; they are not gameplay screenshots. Replace them with real in-app screenshots before marketplace submission if the listing expects screenshots of the running game.
+
+The current app module has no configured Firebase or advertising SDK. Review the CodeCanyon item requirements and add any required third-party services and production credentials before release.
+

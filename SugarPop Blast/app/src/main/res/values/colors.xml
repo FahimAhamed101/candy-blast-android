@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="candy_night">#FF1B0A2E</color>
+    <color name="candy_plum">#FF3B1060</color>
+    <color name="candy_pink">#FFFF4E8B</color>
+    <color name="candy_gold">#FFFFC542</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
+

@@ -1,0 +1,20 @@
+# Gradle & Android caches
+.gradle/
+.gradle-user/
+.idea/
+.kotlin/
+*.log
+*.iml
+local.properties
+build/
+*/build/
+*/.gradle/
+*/.idea/
+*/.kotlin/
+*/*.log
+*/local.properties
+*/.gradle-user/
+.DS_Store
+Thumbs.db
+codecanyon_upload/*.zip
+

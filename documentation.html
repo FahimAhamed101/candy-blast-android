@@ -1,0 +1,158 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SugarPop Blast â€” Project Documentation</title>
+<style>
+:root{--ink:#20252b;--muted:#66717c;--line:#dfe5ea;--paper:#fff;--soft:#f5f7f9;--accent:#2f65c8;--accent2:#eaf1ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#edf1f5;color:var(--ink);font:15px/1.65 Arial,Helvetica,sans-serif}.page{max-width:1120px;margin:32px auto;background:var(--paper);box-shadow:0 12px 40px #15243a1c;min-height:100vh}.cover{padding:82px 88px 70px;background:linear-gradient(135deg,#172943,#315fa7);color:#fff;min-height:430px;display:flex;flex-direction:column;justify-content:center}.eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:12px;opacity:.78}.cover h1{font-size:48px;line-height:1.1;margin:18px 0 12px;max-width:700px}.cover p{font-size:19px;max-width:680px;color:#d9e7ff;margin:0}.badge{margin-top:42px;display:inline-flex;width:max-content;padding:7px 13px;border:1px solid #ffffff55;border-radius:20px;font-size:12px}main{padding:48px 88px 80px}.toc{background:var(--soft);border:1px solid var(--line);padding:25px 30px;margin-bottom:48px}.toc h2{margin:0 0 10px;font-size:20px}.toc a{color:var(--accent);text-decoration:none}.toc ol{columns:2;margin:8px 0 0;padding-left:22px}.toc li{padding:3px 0}section{margin:0 0 54px;break-inside:avoid}h2{font-size:28px;line-height:1.2;margin:0 0 17px;padding-bottom:9px;border-bottom:2px solid var(--ink)}h3{font-size:18px;margin:27px 0 8px}p{margin:8px 0 14px}.lead{font-size:17px;color:#46515c}.note{background:var(--accent2);border-left:4px solid var(--accent);padding:14px 17px;margin:20px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:var(--soft);border:1px solid var(--line);padding:18px 20px}.card h3{margin:0 0 6px;color:#1d4c9d}.card p{margin:0;color:#4d5863}.stack{display:flex;flex-wrap:wrap;gap:9px}.stack span{background:#eef3fb;border:1px solid #d5e1f5;padding:6px 11px;border-radius:4px;color:#234b88;font-size:13px}.code{background:#1b222b;color:#dbe7f6;border-radius:6px;padding:17px 20px;font:13px/1.7 Consolas,monospace;overflow:auto}.tree{white-space:pre}ul,ol{padding-left:24px}li{margin:5px 0}.figure{margin:22px 0 30px}.figure img{display:block;width:100%;height:auto;border:1px solid #ccd4dd;box-shadow:0 5px 18px #1a2a3a18}.caption{font-size:13px;color:var(--muted);margin-top:8px}.steps{counter-reset:step}.step{display:grid;grid-template-columns:38px 1fr;gap:13px;margin:20px 0}.step:before{counter-increment:step;content:counter(step);width:30px;height:30px;border-radius:50%;background:var(--accent);color:white;text-align:center;line-height:30px;font-weight:bold}.step h3{margin:0}.step p{margin-top:3px}footer{border-top:1px solid var(--line);padding:20px 88px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between}@media(max-width:760px){.page{margin:0}.cover{padding:55px 25px}.cover h1{font-size:36px}main{padding:32px 25px 55px}.toc ol{columns:1}.grid{grid-template-columns:1fr}footer{padding:18px 25px;display:block}}@media print{body{background:#fff}.page{margin:0;box-shadow:none}.figure{break-inside:avoid}.cover{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="cover">
+<div class="eyebrow">Android application Â· project documentation</div>
+<h1>SugarPop Blast</h1>
+<p>Documentation for an Android match-3 candy puzzle game built with Kotlin and Jetpack Compose.</p>
+<span class="badge">Version 1.0.0 Â· Android Studio / Gradle</span>
+</header>
+<main>
+<nav class="toc" aria-label="Table of contents"><h2>Contents</h2><ol>
+<li><a href="#overview">Project overview</a></li><li><a href="#features">Features</a></li><li><a href="#stack">Technology stack</a></li><li><a href="#setup">Opening the project</a></li><li><a href="#structure">Project structure</a></li><li><a href="#names">Changing package, application ID, and app name</a></li><li><a href="#config">Build configuration</a></li><li><a href="#resources">Resources and naming</a></li><li><a href="#customization">Customization</a></li><li><a href="#gameconfig">Game configuration and architecture</a></li><li><a href="#services">Services and licensing</a></li><li><a href="#troubleshooting">Troubleshooting</a></li><li><a href="#walkthrough">Visual walkthrough</a></li>
+</ol></nav>
+
+<section id="overview"><h2>1. Project overview</h2>
+<p class="lead">SugarPop Blast is an Android match-3 candy puzzle game. The project presents an 8 Ã— 8 board with animated candy swaps, combo scoring, level progression, sound, haptics, and locally saved player progress.</p>
+<div class="note"><strong>Purpose.</strong> This manual documents the project setup and the important source, resource, and build locations visible in the supplied development screenshots.</div></section>
+
+<section id="features"><h2>2. Features</h2><div class="grid">
+<article class="card"><h3>Match-3 gameplay</h3><p>Tap and swipe controls are used to exchange adjacent candies and create matches.</p></article>
+<article class="card"><h3>Board mechanics</h3><p>An 8 Ã— 8 candy board supports automatic refill and gravity after matches clear.</p></article>
+<article class="card"><h3>Progression</h3><p>Combo scoring, special candy effects, levels, move limits, timers, and level-up states are supported.</p></article>
+<article class="card"><h3>Player feedback</h3><p>Sound effects, music loops, optional vibration feedback, and game-state overlays enrich play.</p></article>
+<article class="card"><h3>Persistence</h3><p>High scores and settings are retained with local application storage.</p></article>
+<article class="card"><h3>Build and test setup</h3><p>The project uses Android, Kotlin, Compose, lifecycle, and test libraries declared by the app module.</p></article>
+</div></section>
+
+<section id="stack"><h2>3. Technology stack</h2><p>The project is organized as a modern Android application using Kotlin and Jetpack Compose.</p>
+<div class="stack"><span>Kotlin</span><span>Android Gradle Plugin</span><span>Jetpack Compose</span><span>Material 3</span><span>AndroidX Lifecycle / ViewModel</span><span>AndroidX Activity</span><span>Coroutines</span><span>JUnit</span><span>Robolectric</span></div>
+<p>Player progress and settings use Android SharedPreferences. This release is offline-only: Firebase, AdMob, Retrofit, OkHttp, Moshi, CameraX, location, Room, and DataStore are not included as dependencies and no service credentials are shipped.</p>
+<div class="note"><strong>Technical requirements:</strong> minimum Android API 24, target/compile SDK 36, Java 11, and the Gradle wrapper included with the project. Record the exact Android Studio version used for the final build before publishing.</div></section>
+
+<section id="setup"><h2>4. Opening the project</h2><div class="steps">
+<div class="step"><div><h3>Open Android Studio</h3><p>From the Welcome screen, choose <strong>Open</strong> to browse for an existing project.</p></div></div>
+<div class="step"><div><h3>Select the project folder</h3><p>Select the <strong>SugarPop Blast</strong> project folder and confirm with <strong>Select Folder</strong>.</p></div></div>
+<div class="step"><div><h3>Wait for Gradle sync</h3><p>Android Studio imports the project and resolves its Gradle configuration. The IDE may display a sync-in-progress banner while dependencies are downloaded.</p></div></div>
+<div class="step"><div><h3>Review the source tree</h3><p>Use the Project panel to inspect <strong>app/src/main</strong>, the Kotlin package, resources, tests, and the root Gradle files.</p></div></div>
+</div><div class="note"><strong>Environment shown in the screenshots:</strong> Android Studio Quail | 2026.1.4 on Windows.</div></section>
+
+<section id="structure"><h2>5. Project structure</h2>
+<div class="code tree">SugarPop Blast/
+â”œâ”€ app/
+â”‚  â”œâ”€ src/main/
+â”‚  â”‚  â”œâ”€ java/com/candycrushblast/
+â”‚  â”‚  â”‚  â”œâ”€ game/
+â”‚  â”‚  â”‚  â”œâ”€ ui/
+â”‚  â”‚  â”‚  â””â”€ MainActivity.kt
+â”‚  â”‚  â”œâ”€ res/
+â”‚  â”‚  â””â”€ AndroidManifest.xml
+â”‚  â””â”€ build.gradle.kts
+â”œâ”€ test/
+â”œâ”€ gradle/
+â”œâ”€ build.gradle.kts
+â”œâ”€ gradle.properties
+â”œâ”€ gradlew / gradlew.bat
+â”œâ”€ proguard-rules.pro
+â”œâ”€ README.md
+â””â”€ settings.gradle.kts</div>
+<p>The package is split into <strong>game</strong> and <strong>ui</strong> areas, with <strong>MainActivity.kt</strong> acting as the application entry point shown in the Android Studio project tree.</p></section>
+
+<section id="names"><h2>6. Changing the package name, application ID, and app name</h2>
+<p>These are three different values:</p>
+<div class="grid">
+<article class="card"><h3>Package name / namespace</h3><p>The Kotlin and Java code namespace, currently <strong>com.sugarpopblast</strong>. It controls package declarations and source folders.</p></article>
+<article class="card"><h3>Application ID</h3><p>The unique Android app identifier used when installing or publishing. It is configured as <strong>applicationId</strong> in <strong>app/build.gradle.kts</strong>.</p></article>
+<article class="card"><h3>App name</h3><p>The name users see below the launcher icon and in Android settings. It is normally the <strong>app_name</strong> string in <strong>app/src/main/res/values/strings.xml</strong>.</p></article>
+<article class="card"><h3>Important</h3><p>Changing the app name does not change the package or application ID. Changing the application ID can make Android treat the result as a different application.</p></article>
+</div>
+<h3>A. Change the package name and namespace</h3>
+<ol>
+<li>In Android Studio Project view, expand <strong>app/src/main/java</strong>.</li>
+<li>Right-click the package, choose <strong>Refactor â†’ Rename</strong>, select <strong>Rename package</strong>, enter the new lowercase name, and click <strong>Refactor</strong>.</li>
+<li>Keep <strong>Search for references</strong> enabled so imports and package declarations are updated.</li>
+<li>Open <strong>app/build.gradle.kts</strong> and set the namespace to the new package, for example <div class="code">namespace = "com.sugarpopblast"</div></li>
+<li>Check <strong>MainActivity.kt</strong> and other Kotlin files. Their package declaration should use the new name.</li>
+</ol>
+<h3>B. Change the application ID</h3>
+<p>In <strong>app/build.gradle.kts</strong>, update the install and publishing identity:</p>
+<div class="code">defaultConfig {
+    applicationId = "com.sugarpopblast"
+}</div>
+<div class="note"><strong>Publishing warning.</strong> A new application ID is a new Android application identity. Existing users will not receive it as an update to the old ID, and Google Play will treat it as a separate app.</div>
+<h3>C. Change the user-visible app name</h3>
+<p>Open <strong>app/src/main/res/values/strings.xml</strong> and change the text inside <strong>app_name</strong>:</p>
+<div class="code">&lt;string name="app_name"&gt;SugarPop Blast&lt;/string&gt;</div>
+<p>Then confirm <strong>AndroidManifest.xml</strong> uses <strong>android:label="@string/app_name"</strong> rather than a different hard-coded label.</p>
+<h3>D. Final checks</h3>
+<ol>
+<li>Run <strong>Sync Project with Gradle Files</strong>, then <strong>Clean Project</strong> and <strong>Rebuild Project</strong>.</li>
+<li>Search the whole project for the old package name and application ID.</li>
+<li>If Firebase is enabled, replace or regenerate <strong>google-services.json</strong> for the new application ID.</li>
+<li>Review deep links, notification providers, AdMob configuration, signing settings, and API credentials containing the old ID.</li>
+<li>If the application ID changed, uninstall the old app from the test device before running the new one.</li>
+</ol>
+<div class="note"><strong>Recommended order:</strong> rename the package with Android Studio, update <strong>namespace</strong>, update <strong>applicationId</strong> if required, then change <strong>app_name</strong>.</div>
+</section>
+
+<section id="config"><h2>7. Build configuration</h2>
+<p>The module build file uses the Android application and Kotlin Compose plugins. The supplied screenshot shows the following application settings:</p>
+<div class="code">namespace = "com.sugarpopblast"
+compileSdk = 36
+applicationId = "com.sugarpopblast"
+minSdk = 24
+targetSdk = 36
+versionCode = 1
+versionName = "1.0.0"</div>
+<h3>Build types</h3><p>Debug builds keep minification disabled. Release builds also show minification disabled in the screenshot and reference the default Android optimize file together with <strong>proguard-rules.pro</strong>.</p></section>
+
+<section id="resources"><h2>8. Resources and naming</h2>
+<p>Android resources live under <strong>app/src/main/res</strong>. The visible resource tree includes drawable, mipmap density folders, raw assets, values, and XML resources.</p><div class="grid">
+<article class="card"><h3>strings.xml</h3><p>The application label is <strong>SugarPop Blast</strong>.</p></article>
+<article class="card"><h3>values</h3><p>Colors, strings, and themes are grouped under the values resource directory.</p></article>
+<article class="card"><h3>mipmap</h3><p>Launcher icon resources are organized by Android density.</p></article>
+<article class="card"><h3>AndroidManifest.xml</h3><p>The manifest is located directly inside app/src/main and defines application metadata.</p></article>
+</div></section>
+
+<section id="customization"><h2>9. Customization</h2>
+<p>Replace candy artwork in <strong>app/src/main/res/drawable-nodpi</strong>. Keep lowercase resource names using letters, numbers, and underscores, for example <strong>candy_blue.png</strong>, <strong>stripe_blue.png</strong>, and <strong>color_bomb.png</strong>. Update the resource mapping in <strong>ui/CandyArt.kt</strong> when adding or renaming a candy.</p>
+<p>Change colors and theme values in <strong>app/src/main/res/values/colors.xml</strong> and <strong>ui/Theme.kt</strong>. Replace the launcher artwork in the <strong>mipmap-*</strong> folders and the adaptive icon files under <strong>res/drawable</strong>. Keep all artwork original or include a commercial redistribution license.</p>
+<p>Backgrounds and other UI images belong in <strong>res/drawable</strong>. Use a matching resource name in the Kotlin UI code and test both light and dark device configurations.</p></section>
+
+<section id="gameconfig"><h2>10. Game configuration and architecture</h2>
+<p>The board dimensions, move limits, timers, targets, and level count are defined in <strong>game/Levels.kt</strong> and the related model values in <strong>game/GameModels.kt</strong>. For example, change the board configuration from 8 Ã— 8 to 9 Ã— 9 only after checking the board layout and test cases. Change a level's move limit or score target in its <strong>LevelConfig</strong>; then run the unit tests and play the affected level.</p>
+<div class="code">Before: boardSize = 8, moves = 20, targetScore = 1000
+After:  boardSize = 9, moves = 25, targetScore = 1500</div>
+<p><strong>MainActivity.kt</strong> creates the application screens and shared state. <strong>GameViewModel.kt</strong> exposes state and handles user actions. <strong>MatchEngine.kt</strong> performs swaps, matches, gravity, refill, and scoring. Compose files in <strong>ui/</strong> render state and send gestures back to the ViewModel. <strong>ProgressStore.kt</strong> persists local progress; <strong>SoundFx.kt</strong> loads audio from <strong>res/raw</strong>.</p></section>
+
+<section id="services"><h2>11. Services, privacy, and licensing</h2>
+<p>This source release does not include Firebase, AdMob, network clients, analytics, or a <strong>google-services.json</strong> file. It is an offline game. If you add Firebase or AdMob in your own app, create your own accounts and credentials, document the integration, and never ship the author's credentials.</p>
+<p>Before publishing, replace any music or artwork for which you cannot show a license allowing redistribution inside a commercial source-code item. Add an <strong>ASSET_LICENSES.md</strong> file containing the creator, source URL, license, and attribution for every third-party asset.</p></section>
+
+<section id="troubleshooting"><h2>12. Troubleshooting and release checklist</h2>
+<ul><li><strong>Gradle sync fails:</strong> install SDK Platform 36, use JDK 11, check the Gradle error, then use File â†’ Sync Project with Gradle Files.</li><li><strong>SDK compatibility error:</strong> install the required SDK platform or lower compile/target SDK only after retesting and updating this manual.</li><li><strong>Missing raw asset:</strong> confirm the file is under <strong>app/src/main/res/raw</strong>, uses lowercase underscores, and matches the <strong>R.raw</strong> reference.</li><li><strong>Before publishing:</strong> run <strong>clean</strong>, <strong>assembleRelease</strong>, and <strong>test</strong>; inspect the manifest; remove credentials; verify licenses; test on a clean device; and capture current gameplay screenshots.</li></ul></section>
+
+<section id="walkthrough"><h2>13. Visual walkthrough</h2><p>Use screenshots captured from the current SugarPop Blast build. Do not include pre-rebrand IDE screenshots in the marketplace preview. Add separate in-game images for the board, match animation, level-up, game-over, and settings states. Marketplace screenshots must follow the dimensions stated in the reviewer message.</p>
+<figure class="figure"><img src="Assets/Screenshot_2.png" alt="Android Studio Welcome screen with SugarPop Blast in the recent projects list"><figcaption class="caption">Figure 1 â€” Android Studio Welcome screen with the project listed in recent projects.</figcaption></figure>
+<figure class="figure"><img src="Assets/Screenshot_3.png" alt="Android Studio Open File or Project dialog browsing the Desktop"><figcaption class="caption">Figure 2 â€” Selecting the project directory from the Open File or Project dialog.</figcaption></figure>
+<figure class="figure"><img src="Assets/Screenshot_4.png" alt="Android Studio project view with README documentation open"><figcaption class="caption">Figure 3 â€” Imported project tree and the README overview in Android Studio.</figcaption></figure>
+<figure class="figure"><img src="Assets/Screenshot_5.png" alt="Android Studio refactor dialog for the candycrushblast package"><figcaption class="caption">Figure 4 â€” Package rename/refactor dialog with reference search enabled.</figcaption></figure>
+<figure class="figure"><img src="Assets/Screenshot_6.png" alt="Android Studio build.gradle.kts file showing Android configuration"><figcaption class="caption">Figure 5 â€” Module Gradle configuration, SDK levels, and application version.</figcaption></figure>
+<figure class="figure"><img src="Assets/Screenshot_7.png" alt="Android Studio strings.xml resource showing the application name"><figcaption class="caption">Figure 6 â€” Original strings.xml screenshot, captured before the SugarPop Blast rebrand.</figcaption></figure>
+</section>
+</main>
+<footer><span>SugarPop Blast Â· Project Documentation</span><span>Prepared from supplied project screenshots</span></footer>
+</div>
+</body>
+</html>
+
